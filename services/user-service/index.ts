@@ -5,7 +5,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 import { query, queryOne, queryMany } from '../../shared/db';
 
@@ -167,7 +167,7 @@ async function issueTokens(userId: string): Promise<{ accessToken: string; refre
   const accessToken = jwt.sign(
     { userId, role: user?.role },
     JWT_SECRET,
-    { expiresIn: JWT_EXPIRES }
+    { expiresIn: JWT_EXPIRES } as SignOptions
   );
 
   const refreshToken = uuidv4() + '-' + uuidv4();
