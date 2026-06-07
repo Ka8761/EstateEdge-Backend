@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "commonjs",
- "scripts": {
+"scripts": {
   "build": "cd services/gateway && npm install ts-node typescript && npm install",
-  "start": "cd services/gateway && ./node_modules/.bin/ts-node --transpile-only index.ts"
+  "start": "cd services/gateway && ./node_modules/.bin/ts-node --transpile-only src/index.ts"
 },
 
 "dependencies": {
